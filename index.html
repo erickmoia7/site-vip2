@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#100812">
   <meta name="description" content="Conheça as novidades e entre gratuitamente no canal da Milla Gabriele no Telegram.">
   <title>Milla Gabriele ✦ Canal oficial</title>
@@ -47,193 +47,123 @@
     .hero-video-panel video { width:100%; height:100%; object-fit:cover; filter:saturate(1.15) contrast(1.08); }
     .hero-video-panel::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(20,8,22,.9),rgba(20,8,22,.5) 58%,rgba(20,8,22,.16)); }
     
-    .page { width: min(100% - 32px, 900px); margin: 0 auto; padding: 34px 0 40px; }
+    .page { width: min(100% - 24px, 480px); margin: 0 auto; padding: 20px 0 90px; }
     
-    /* Topbar com 'Bem-vindo' centralizado */
-    .topbar { display:flex; align-items:center; justify-content:center; margin-bottom:38px; color:#ddcfe2; font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; }
-    .topbar-tag { border:1px solid var(--line); border-radius:999px; padding:8px 16px; background:#ffffff08; }
+    .topbar { display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#ddcfe2; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; text-align:center; }
+    .topbar-tag { border:1px solid var(--line); border-radius:999px; padding:6px 14px; background:#ffffff08; }
     
-    .hero { position:relative; display:grid; grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr); align-items:center; gap:clamp(18px,3vw,34px); min-height:430px; padding:clamp(24px,4vw,38px); overflow:hidden; border:1px solid rgba(255,255,255,.14); border-radius:34px; background:linear-gradient(120deg,rgba(42,20,44,.92),rgba(19,10,23,.76)); box-shadow:0 30px 100px #0005; isolation:isolate; }
-    .hero::before { content:""; position:absolute; z-index:-1; width:390px; height:390px; right:-90px; top:-95px; border-radius:50%; background:radial-gradient(circle,#ff4fa34a,transparent 68%); }
+    .hero { position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; padding:24px 18px; overflow:hidden; border:1px solid rgba(255,255,255,.14); border-radius:28px; background:linear-gradient(120deg,rgba(42,20,44,.92),rgba(19,10,23,.76)); box-shadow:0 20px 60px #0007; isolation:isolate; }
+    .hero::before { content:""; position:absolute; z-index:-1; width:280px; height:280px; right:-60px; top:-60px; border-radius:50%; background:radial-gradient(circle,#ff4fa34a,transparent 68%); }
     .hero::after { content:""; position:absolute; z-index:-1; inset:0; opacity:.14; background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size:38px 38px; mask-image:linear-gradient(90deg,black,transparent); }
     
-    .profile { min-width:0; text-align:left; animation: enter .8s cubic-bezier(.2,.8,.2,1) both; }
-    .hero-visual { position:relative; display:grid; place-items:center; min-width:0; min-height:340px; }
-    .hero-orbit { position:absolute; width:310px; height:310px; border:1px solid #ff8cc844; border-radius:50%; animation:rotate 22s linear infinite; }
-    .hero-orbit::before,.hero-orbit::after { content:"✦"; position:absolute; color:#ffc1e0; text-shadow:0 0 20px #ff4fa3; font-size:20px; }
-    .hero-orbit::before { top:28px; left:48px; } .hero-orbit::after { right:28px; bottom:48px; }
-    .hero-photo { position:relative; width:min(100%,220px); height:270px; transform:rotate(2deg); border-radius:110px 110px 35px 35px; overflow:hidden; border:1px solid #ffffff55; box-shadow:0 30px 80px #0008,0 0 65px #ff4fa322; }
-    .hero-photo img { width:100%; height:100%; object-fit:cover; }
-    .float-tag { position:absolute; z-index:2; padding:11px 14px; border:1px solid #ffffff2b; border-radius:15px; background:#211329cc; backdrop-filter:blur(14px); box-shadow:0 12px 35px #0004; font-size:.75rem; animation:float 4s ease-in-out infinite; }
-    .float-tag.one { top:42px; right:-5px; } .float-tag.two { bottom:38px; left:-8px; animation-delay:-2s; }
-    .float-tag strong { display:block; font-size:.9rem; color:#fff; } .float-tag small { color:#d5bfd9; }
+    .profile { width:100%; animation: enter .8s cubic-bezier(.2,.8,.2,1) both; }
     
-    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border:1px solid var(--line); border-radius:999px; color:#f6d6e8; background:rgba(255,255,255,.045); font-size:.75rem; letter-spacing:.07em; text-transform:uppercase; }
+    /* Correção da Órbita e Estrelas no Celular */
+    .hero-visual { position:relative; display:flex; justify-content:center; align-items:center; width:100%; height:260px; margin-bottom:12px; }
+    .hero-orbit { position:absolute; width:230px; height:230px; border:1px solid #ff8cc866; border-radius:50%; animation:rotate 22s linear infinite; z-index:2; pointer-events:none; }
+    .hero-orbit::before, .hero-orbit::after { content:"✦"; position:absolute; color:#ffc1e0; text-shadow:0 0 16px #ff4fa3; font-size:18px; z-index:3; }
+    .hero-orbit::before { top:8px; left:28px; } 
+    .hero-orbit::after { right:20px; bottom:20px; }
+    
+    .hero-photo { position:relative; z-index:1; width:160px; height:200px; transform:rotate(2deg); border-radius:80px 80px 30px 30px; overflow:hidden; border:1px solid #ffffff55; box-shadow:0 20px 50px #0008, 0 0 45px #ff4fa322; }
+    .hero-photo img { width:100%; height:100%; object-fit:cover; }
+    
+    .float-tag { position:absolute; z-index:4; padding:8px 12px; border:1px solid #ffffff2b; border-radius:12px; background:#211329ee; backdrop-filter:blur(14px); box-shadow:0 10px 25px #0006; font-size:.68rem; animation:float 4s ease-in-out infinite; white-space:nowrap; }
+    .float-tag.one { top:10px; right:10px; } 
+    .float-tag.two { bottom:10px; left:10px; animation-delay:-2s; }
+    .float-tag strong { display:block; font-size:.78rem; color:#fff; } 
+    .float-tag small { color:#d5bfd9; }
+    
+    .eyebrow { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:#f6d6e8; background:rgba(255,255,255,.045); font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px; }
     .eyebrow .spark { color:#ffc1e0; animation: twinkle 2s ease-in-out infinite; }
     
     h1,h2,h3 { font-family:Manrope,sans-serif; }
-    h1 { margin:18px 0 14px; font-size:clamp(2.7rem,6.5vw,5.2rem); line-height:.98; letter-spacing:-.075em; max-width:500px; }
-    h1 .gradient-word { display:block; background:linear-gradient(100deg,#fff 5%,#ff9dcc 48%,#c39aff 95%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .hero .bio { margin:0; max-width:410px; font-size:1rem; }
-    .hero .cta-wrap { margin:26px 0 0; max-width:370px; }
-    .micro-proof { display:flex; align-items:center; gap:10px; margin-top:18px; color:#c9b7ce; font-size:.75rem; }
-    .micro-proof i { color:#ff9dcc; }
-    .bio { max-width:430px; margin:0 auto; color:var(--muted); line-height:1.7; font-size:1rem; }
-    .status { display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-size:.82rem; color:#d9cedc; }
-    .status-dot { width:8px; height:8px; border-radius:50%; background:#55e6a5; box-shadow:0 0 0 5px rgba(85,230,165,.10); }
+    h1 { margin:8px 0 10px; font-size:2.4rem; line-height:1.05; letter-spacing:-.05em; }
+    h1 .gradient-word { background:linear-gradient(100deg,#fff 5%,#ff9dcc 48%,#c39aff 95%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero .bio { margin:0 auto; font-size:.92rem; line-height:1.55; color:var(--muted); }
     
-    .cta-wrap { margin:30px auto 0; width:min(100%,460px); }
+    .status { display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-size:.78rem; color:#d9cedc; }
+    .status-dot { width:8px; height:8px; border-radius:50%; background:#55e6a5; box-shadow:0 0 0 4px rgba(85,230,165,.15); }
+    
+    .cta-wrap { margin:20px auto 0; width:100%; }
     .cta {
-      isolation:isolate; position:relative; display:flex; align-items:center; justify-content:center; gap:13px;
-      width:100%; min-height:66px; padding:16px 20px; border-radius:18px; overflow:hidden;
+      isolation:isolate; position:relative; display:flex; align-items:center; justify-content:center; gap:10px;
+      width:100%; min-height:58px; padding:12px 16px; border-radius:16px; overflow:hidden;
       border:1px solid rgba(255,255,255,.35); color:white; text-decoration:none;
       background:linear-gradient(110deg,#168bd0,#25b9f4 48%,#167fd1);
-      box-shadow:0 12px 35px rgba(0,153,255,.22), inset 0 1px 0 rgba(255,255,255,.35);
-      font-weight:800; font-size:1rem; transition:transform .25s, box-shadow .25s;
+      box-shadow:0 12px 30px rgba(0,153,255,.25), inset 0 1px 0 rgba(255,255,255,.35);
+      font-weight:800; font-size:.92rem; transition:transform .25s, box-shadow .25s;
     }
     .cta::before { content:""; position:absolute; inset:0; z-index:-1; transform:translateX(-120%); background:linear-gradient(110deg,transparent,rgba(255,255,255,.24),transparent); transition:transform .65s; }
-    .cta:hover { transform:translateY(-3px); box-shadow:0 18px 42px rgba(0,153,255,.32); }
-    .cta:hover::before { transform:translateX(120%); }
-    .cta i { font-size:1.65rem; }
-    .cta-copy { display:flex; flex-direction:column; align-items:flex-start; gap:2px; }
-    .cta-copy small { font-size:.72rem; font-weight:500; opacity:.85; }
+    .cta:active { transform:scale(.98); }
+    .cta i { font-size:1.4rem; }
+    .cta-copy { display:flex; flex-direction:column; align-items:flex-start; gap:1px; text-align:left; }
+    .cta-copy small { font-size:.68rem; font-weight:500; opacity:.85; }
     
-    .marquee { margin:34px calc((900px - min(100vw - 32px, 900px)) / -2) 0; overflow:hidden; border-top:1px solid #ffffff14; border-bottom:1px solid #ffffff14; background:#ffffff04; }
-    .marquee-track { display:flex; width:max-content; gap:26px; padding:14px 0; color:#e9cfe5; font:800 .72rem Manrope,sans-serif; letter-spacing:.17em; text-transform:uppercase; animation:marquee 28s linear infinite; }
-    .marquee-track span { display:flex; align-items:center; gap:26px; } .marquee-track b { color:#ff73b5; }
+    .micro-proof { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; color:#c9b7ce; font-size:.72rem; }
+    .micro-proof i { color:#ff9dcc; }
     
-    .section { margin-top:64px; }
-    .section-heading { text-align:center; margin-bottom:22px; }
-    .section-kicker { color:#ff9dcc; text-transform:uppercase; letter-spacing:.15em; font-size:.7rem; font-weight:700; }
-    h2 { margin:9px 0 8px; font-size:clamp(1.45rem,5vw,2rem); letter-spacing:-.04em; }
-    .section-heading p { margin:0 auto; max-width:430px; color:var(--muted); font-size:.9rem; line-height:1.65; }
+    .marquee { margin:24px -12px 0; overflow:hidden; border-top:1px solid #ffffff14; border-bottom:1px solid #ffffff14; background:#ffffff04; }
+    .marquee-track { display:flex; width:max-content; gap:18px; padding:10px 0; color:#e9cfe5; font:800 .68rem Manrope,sans-serif; letter-spacing:.12em; text-transform:uppercase; animation:marquee 20s linear infinite; }
+    .marquee-track span { display:flex; align-items:center; gap:18px; } .marquee-track b { color:#ff73b5; }
     
-    .preview-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-    .preview:nth-child(2) { margin-top:34px; }
+    .section { margin-top:38px; }
+    .section-heading { text-align:center; margin-bottom:18px; }
+    .section-kicker { color:#ff9dcc; text-transform:uppercase; letter-spacing:.12em; font-size:.68rem; font-weight:700; }
+    h2 { margin:6px 0; font-size:1.6rem; letter-spacing:-.03em; }
+    .section-heading p { margin:0 auto; color:var(--muted); font-size:.85rem; line-height:1.5; }
+    
+    .preview-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; }
     .preview {
-      position:relative; display:block; aspect-ratio:4/5; border-radius:20px; overflow:hidden;
+      position:relative; display:block; aspect-ratio:3/4; border-radius:16px; overflow:hidden;
       background:#28192c; border:1px solid var(--line); box-shadow:var(--shadow); text-decoration:none; color:white;
-      transform:translateY(0); transition:transform .35s,border-color .35s,box-shadow .35s;
     }
-    .preview:hover { transform:translateY(-6px); border-color:rgba(255,110,183,.6); box-shadow:0 28px 65px rgba(0,0,0,.42); }
-    .preview img { width:100%; height:100%; object-fit:cover; filter:blur(5px) brightness(.58); transform:scale(1.06); transition:filter .45s,transform .7s; }
-    .preview:hover img { filter:blur(3px) brightness(.68); transform:scale(1.12); }
-    .preview::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 30%,rgba(12,5,15,.78)); }
-    .preview-label { position:absolute; z-index:1; inset:auto 12px 16px; display:flex; flex-direction:column; align-items:center; gap:9px; text-align:center; }
-    .preview-label strong { font-size:1rem; }
-    .preview-label .preview-desc { color:#e7d7e9; font-size:.78rem; }
-    .lock { display:grid; place-items:center; width:48px; height:48px; border:1px solid rgba(255,255,255,.35); border-radius:50%; background:rgba(20,10,24,.58); backdrop-filter:blur(10px); font-size:1.1rem; }
-    .age { padding:5px 10px; border-radius:999px; background:rgba(255,79,163,.18); border:1px solid rgba(255,137,195,.7); font-size:.7rem; font-weight:800; letter-spacing:.08em; }
+    .preview img { width:100%; height:100%; object-fit:cover; filter:blur(4px) brightness(.6); }
+    .preview::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 20%,rgba(12,5,15,.85)); }
+    .preview-label { position:absolute; z-index:1; inset:auto 8px 12px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; }
+    .preview-label strong { font-size:.85rem; }
+    .preview-label .preview-desc { color:#e7d7e9; font-size:.72rem; }
+    .lock { display:grid; place-items:center; width:38px; height:38px; border:1px solid rgba(255,255,255,.35); border-radius:50%; background:rgba(20,10,24,.6); backdrop-filter:blur(8px); font-size:.9rem; }
+    .age { padding:4px 8px; border-radius:999px; background:rgba(255,79,163,.2); border:1px solid rgba(255,137,195,.7); font-size:.62rem; font-weight:800; }
     
     .benefits {
-      position:relative; overflow:hidden; margin-top:28px; padding:32px;
-      border:1px solid var(--line); border-radius:24px; background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
-      backdrop-filter:blur(18px); box-shadow:var(--shadow);
+      position:relative; overflow:hidden; margin-top:24px; padding:20px 16px;
+      border:1px solid var(--line); border-radius:20px; background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
+      backdrop-filter:blur(18px);
     }
-    .benefits::before { content:""; position:absolute; width:150px; height:150px; border-radius:50%; right:-65px; top:-75px; background:var(--violet); opacity:.15; filter:blur(45px); }
-    .benefits h3 { margin:0; text-align:center; font-size:1.2rem; letter-spacing:-.025em; }
-    .benefits-intro { margin:8px 0 24px; text-align:center; color:var(--muted); font-size:.85rem; line-height:1.6; }
-    .benefit-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
-    .benefit { display:grid; grid-template-columns:44px 1fr; align-items:start; gap:13px; padding:18px; border:1px solid #ffffff10; border-radius:18px; background:#ffffff05; transition:transform .3s,border-color .3s; }
-    .benefit:hover { transform:translateY(-5px); border-color:#ff80bd55; }
-    .benefit-icon { width:44px; height:44px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.11); border-radius:14px; background:rgba(255,255,255,.055); font-size:1.2rem; }
-    .benefit strong { display:block; margin:2px 0 4px; font-size:.92rem; }
-    .benefit p { margin:0; color:var(--muted); font-size:.82rem; line-height:1.55; }
+    .benefits h3 { margin:0; text-align:center; font-size:1.1rem; }
+    .benefits-intro { margin:6px 0 16px; text-align:center; color:var(--muted); font-size:.8rem; }
+    .benefit-list { display:flex; flex-direction:column; gap:10px; }
+    .benefit { display:grid; grid-template-columns:36px 1fr; align-items:center; gap:10px; padding:12px; border:1px solid #ffffff10; border-radius:14px; background:#ffffff05; }
+    .benefit-icon { width:36px; height:36px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.11); border-radius:10px; background:rgba(255,255,255,.055); font-size:1rem; }
+    .benefit strong { display:block; font-size:.85rem; }
+    .benefit p { margin:0; color:var(--muted); font-size:.75rem; line-height:1.4; }
     
-    .bottom-cta { margin:34px auto 0; max-width:560px; }
-    .closing { margin-top:62px; padding:36px 24px; text-align:center; border-radius:28px; border:1px solid #ff8bc633; background:radial-gradient(ellipse at top, #a42d7130, transparent 70%),#ffffff04; }
-    .closing h2 { font-size:clamp(1.7rem,5vw,2.7rem); }
-    .closing p { color:var(--muted); margin:0 auto 20px; max-width:420px; line-height:1.7; }
+    .bottom-cta { margin-top:24px; }
+    .closing { margin-top:36px; padding:24px 16px; text-align:center; border-radius:22px; border:1px solid #ff8bc633; background:radial-gradient(ellipse at top, #a42d7130, transparent 70%),#ffffff04; }
+    .closing h2 { font-size:1.8rem; }
+    .closing p { color:var(--muted); margin:0 auto 16px; font-size:.85rem; line-height:1.5; }
     
     .scroll-progress { position:fixed; top:0; left:0; width:100%; height:3px; z-index:10; background:#ffffff12; }
     .scroll-progress span { display:block; width:0; height:100%; background:linear-gradient(90deg,var(--pink),var(--violet)); box-shadow:0 0 12px #ff4fa3; }
     
-    .mobile-cta { display:none; }
-    .socials { display:flex; justify-content:center; gap:13px; margin:38px 0 18px; }
-    .social { display:grid; place-items:center; width:46px; height:46px; border:1px solid var(--line); border-radius:15px; color:white; background:rgba(255,255,255,.045); font-size:1.2rem; text-decoration:none; transition:transform .25s,background .25s,border-color .25s; }
-    .social:hover { transform:translateY(-4px); background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.28); }
-    .instagram i { color:#ff78b8; } .threads i,.tiktok i { color:#fff; }
+    .mobile-cta { position:fixed; z-index:8; left:12px; right:12px; bottom:12px; padding-bottom:env(safe-area-inset-bottom); }
+    .mobile-cta .cta { min-height:54px; border-radius:14px; box-shadow:0 8px 30px #000b, 0 0 20px #168bd055; }
     
-    footer { color:#8e7e93; text-align:center; font-size:.73rem; line-height:1.7; }
-    .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1); }
+    .socials { display:flex; justify-content:center; gap:12px; margin:28px 0 16px; }
+    .social { display:grid; place-items:center; width:42px; height:42px; border:1px solid var(--line); border-radius:12px; color:white; background:rgba(255,255,255,.045); font-size:1.1rem; text-decoration:none; }
+    .instagram i { color:#ff78b8; }
+    
+    footer { color:#8e7e93; text-align:center; font-size:.7rem; line-height:1.6; }
+    .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease,transform .6s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
-    .toast { position:fixed; left:50%; bottom:20px; transform:translate(-50%,20px); opacity:0; pointer-events:none; padding:10px 15px; border:1px solid var(--line); border-radius:999px; background:#26172b; color:white; font-size:.8rem; transition:.25s; z-index:5; }
-    .toast.show { opacity:1; transform:translate(-50%,0); }
     
-    @keyframes enter { from { opacity:0; transform:translateY(20px) scale(.985); } to { opacity:1; transform:translateY(0) scale(1); } }
+    @keyframes enter { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
     @keyframes rotate { to { transform:rotate(360deg); } }
-    @keyframes drift { to { transform:translate(50px,35px) scale(1.12); } }
-    @keyframes twinkle { 50% { transform:scale(1.2) rotate(12deg); opacity:.7; } }
-    @keyframes float { 0%,100% { transform:translateY(0) rotate(-2deg); } 50% { transform:translateY(-10px) rotate(1deg); } }
+    @keyframes drift { to { transform:translate(30px,20px) scale(1.1); } }
+    @keyframes twinkle { 50% { transform:scale(1.15) rotate(10deg); opacity:.7; } }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
     @keyframes marquee { to { transform:translateX(-50%); } }
-
-    @media (max-width: 700px) {
-      .page { width: min(100% - 24px, 560px); padding-top: 22px; padding-bottom: 92px; }
-      .topbar { margin-bottom: 18px; }
-      .hero { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 22px 17px 21px; border-radius: 24px; }
-      .hero-video-panel { opacity: .20; }
-      .hero-video-panel::after { background: linear-gradient(180deg, rgba(20,8,22,.52), rgba(20,8,22,.15)); }
-      
-      .hero-visual { order: -1; width: 100%; min-height: 238px; margin: 0 auto 8px; }
-      .hero-photo { width: 158px; height: 194px; transform: rotate(2deg); }
-      .hero-orbit { width: 218px; height: 218px; }
-      
-      .profile { order: 0; width: 100%; min-width: 0; text-align: center; }
-      .hero .eyebrow { max-width: 100%; justify-content: center; font-size: .67rem; letter-spacing: .045em; }
-      
-      h1 { max-width: 100%; font-size: clamp(2.5rem, 10.5vw, 3.6rem); line-height: 1.02; margin: 14px auto 12px; overflow-wrap: anywhere; }
-      .hero h1 .gradient-word { display: inline; }
-      
-      .hero .bio { max-width: 34ch; margin: 0 auto; font-size: .95rem; line-height: 1.65; }
-      .status { justify-content: center; margin-top: 13px; }
-      .hero .cta-wrap { width: 100%; max-width: 380px; margin: 21px auto 0; }
-      .hero .cta { min-height: 60px; padding: 13px 14px; gap: 10px; font-size: .9rem; }
-      .hero .cta-copy small { font-size: .68rem; }
-      
-      .micro-proof { justify-content: center; flex-wrap: wrap; row-gap: 7px; font-size: .7rem; }
-      
-      .float-tag { padding: 9px 10px; border-radius: 12px; font-size: .68rem; }
-      .float-tag strong { font-size: .78rem; }
-      .float-tag.one { right: calc(50% - 128px); top: 17px; }
-      .float-tag.two { left: calc(50% - 128px); bottom: 13px; }
-      
-      .marquee { margin-top: 25px; }
-      .section { margin-top: 46px; }
-      .preview-grid { gap: 10px; }
-      .preview:nth-child(2) { margin-top: 22px; }
-      .preview { border-radius: 16px; }
-      .preview-label { inset: auto 8px 12px; }
-      .preview-label strong { font-size: .85rem; }
-      
-      .benefits { padding: 23px 17px; }
-      .benefit-list { grid-template-columns: 1fr; gap: 11px; }
-      .benefit { grid-template-columns: 44px 1fr; padding: 12px; gap: 12px; }
-      
-      .closing { margin-top: 44px; padding: 28px 18px; }
-      .mobile-cta { position: fixed; display: block; z-index: 8; left: 12px; right: 12px; bottom: 12px; padding-bottom: env(safe-area-inset-bottom); }
-      .mobile-cta .cta { min-height: 56px; border-radius: 16px; box-shadow: 0 8px 35px #0009, 0 0 25px #168bd044; }
-      .socials { margin-top: 30px; }
-    }
-
-    @media (max-width: 380px) {
-      .page { width: calc(100% - 18px); }
-      .hero { padding-left: 13px; padding-right: 13px; }
-      .hero-visual { min-height: 218px; }
-      .hero-photo { width: 145px; height: 178px; }
-      .hero-orbit { width: 198px; height: 198px; }
-      .float-tag.one { right: -2px; }
-      .float-tag.two { left: -2px; }
-      .hero .cta { gap: 8px; padding-left: 10px; padding-right: 10px; }
-      .hero .cta-copy > span { font-size: .82rem; }
-      .topbar { font-size: .65rem; }
-      .topbar-tag { padding: 7px 9px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
-      .marquee-track { animation: none; }
-    }
   </style>
 </head>
 <body>
@@ -254,45 +184,45 @@
         <video autoplay muted loop playsinline preload="metadata"><source src="video.mp4" type="video/mp4"></video>
       </div>
       
+      <div class="hero-visual" aria-label="Imagem de perfil">
+        <div class="hero-orbit" aria-hidden="true"></div>
+        <div class="hero-photo"><img src="perfil.jpeg" alt="Perfil da Milla Gabriele" loading="eager"></div>
+        <div class="float-tag one"><strong>✨ Meu dia a dia</strong><small>Fique por dentro!</small></div>
+        <div class="float-tag two"><strong>💌 Atenção especial</strong><small>Toque para entrar</small></div>
+      </div>
+
       <header class="profile">
         <span class="eyebrow"><span class="spark">✦</span> Conteúdo exclusivo te esperando 🔥🔞</span>
         <h1>Milla <span class="gradient-word">Gabriele.</span></h1>
         <p class="bio">Novidades, surpresas e tudo reunido em um só lugar. Entre no canal e fique por dentro. 💗</p>
         <div class="status"><span class="status-dot"></span> Online agora</div>
         <div class="cta-wrap">
-          <a href="https://t.me/millagabibot?start=7dac3524dffd" class="cta" target="_blank" rel="noopener noreferrer" data-track="telegram-top">
+          <a href="https://t.me/millagabibot?start=7dac3524dffd" class="cta" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-telegram" aria-hidden="true"></i>
             <span class="cta-copy"><span>CANAL FREE NO TELEGRAM</span><small>Clique e fale diretamente comigo ↗</small></span>
-            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.9rem;margin-left:auto" aria-hidden="true"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.85rem;margin-left:auto" aria-hidden="true"></i>
           </a>
         </div>
-        <div class="micro-proof"><i class="fa-solid fa-circle-check"></i> Acesso simples, rápido e prático! </div>
+        <div class="micro-proof"><i class="fa-solid fa-circle-check"></i> Acesso simples, rápido e prático!</div>
       </header>
-      
-      <div class="hero-visual" aria-label="Imagem de perfil">
-        <div class="hero-orbit" aria-hidden="true"></div>
-        <div class="hero-photo"><img src="perfil.jpeg" alt="" loading="eager"></div>
-        <div class="float-tag one"><strong>✨ Meu dia a dia</strong><small>Fique por dentro de tudo!</small></div>
-        <div class="float-tag two"><strong>💌 Atenção especial</strong><small>Um toque para entrar</small></div>
-      </div>
     </section>
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>✨ NOVIDADES <b>✦</b> CONTEÚDO EXCLUSIVO 🔞<b>✦</b> ENTRE NO CANAL GRÁTIS 🔥<b>✦</b> UM TOQUE PARA COMEÇAR <b>✦</b></span>
-        <span>✨ NOVIDADES <b>✦</b> CONTEÚDO EXCLUSIVO 🔞<b>✦</b> ENTRE NO CANAL GRÁTIS 🔥<b>✦</b> UM TOQUE PARA COMEÇAR <b>✦</b></span>
+        <span>✨ NOVIDADES <b>✦</b> CONTEÚDO EXCLUSIVO 🔞<b>✦</b> ENTRE NO CANAL GRÁTIS 🔥<b>✦</b></span>
+        <span>✨ NOVIDADES <b>✦</b> CONTEÚDO EXCLUSIVO 🔞<b>✦</b> ENTRE NO CANAL GRÁTIS 🔥<b>✦</b></span>
       </div>
     </div>
 
-    <section class="section reveal" aria-labelledby="preview-title">
+    <section class="section reveal">
       <div class="section-heading">
         <span class="section-kicker">Uma prévia</span>
-        <h2 id="preview-title">Tem mais te esperando ✨</h2>
+        <h2>Tem mais te esperando ✨</h2>
         <p>Veja uma pequena amostra e entre no canal para acompanhar as próximas novidades.</p>
       </div>
       <div class="preview-grid">
-        <a href="https://t.me/millagabibot?start=7dac3524dffd" class="preview" target="_blank" rel="noopener noreferrer" data-track="preview-1" aria-label="Abrir o canal no Telegram">
-          <img src="foto1.jpeg" alt="Prévia de conteúdo" loading="lazy">
+        <a href="https://t.me/millagabibot?start=7dac3524dffd" class="preview" target="_blank" rel="noopener noreferrer">
+          <img src="foto1.jpeg" alt="Prévia de conteúdo 1" loading="lazy">
           <span class="preview-label">
             <span class="lock"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
             <span class="age">CONTEÚDO +18</span>
@@ -300,8 +230,8 @@
             <span class="preview-desc">Toque para conhecer ↗</span>
           </span>
         </a>
-        <a href="https://t.me/millagabibot?start=7dac3524dffd" class="preview" target="_blank" rel="noopener noreferrer" data-track="preview-2" aria-label="Ver novidades no Telegram">
-          <img src="foto2.jpeg" alt="Prévia de conteúdo" loading="lazy">
+        <a href="https://t.me/millagabibot?start=7dac3524dffd" class="preview" target="_blank" rel="noopener noreferrer">
+          <img src="foto2.jpeg" alt="Prévia de conteúdo 2" loading="lazy">
           <span class="preview-label">
             <span class="lock"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
             <span class="age">CONTEÚDO +18</span>
@@ -312,8 +242,8 @@
       </div>
     </section>
 
-    <section class="benefits reveal" aria-labelledby="benefits-title">
-      <h3 id="benefits-title">Por que entrar no canal? 💜</h3>
+    <section class="benefits reveal">
+      <h3>Por que entrar no canal? 💜</h3>
       <p class="benefits-intro">É gratuito para entrar e você pode sair quando quiser.</p>
       <div class="benefit-list">
         <div class="benefit"><span class="benefit-icon">✨</span><div><strong>Novidades durante a semana</strong><p>Acompanhe as atualizações em um só lugar.</p></div></div>
@@ -323,10 +253,10 @@
     </section>
 
     <div class="bottom-cta reveal">
-      <a href="https://t.me/millagabibot?start=7dac3524dffd" class="cta" target="_blank" rel="noopener noreferrer" data-track="telegram-bottom">
+      <a href="https://t.me/millagabibot?start=7dac3524dffd" class="cta" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-telegram" aria-hidden="true"></i>
         <span class="cta-copy"><span>QUERO ENTRAR AGORA</span><small>É só tocar para continuar</small></span>
-        <i class="fa-solid fa-arrow-right" style="font-size:1rem;margin-left:auto" aria-hidden="true"></i>
+        <i class="fa-solid fa-arrow-right" style="font-size:.9rem;margin-left:auto" aria-hidden="true"></i>
       </a>
     </div>
 
@@ -334,10 +264,10 @@
       <span class="section-kicker">Você está a um toque</span>
       <h2>Vamos continuar por lá? 💗</h2>
       <p>Entre no canal gratuito e acompanhe as próximas atualizações sem complicação.</p>
-      <a href="https://t.me/millagabibot?start=7dac3524dffd" class="cta" target="_blank" rel="noopener noreferrer" data-track="telegram-closing">
+      <a href="https://t.me/millagabibot?start=7dac3524dffd" class="cta" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-telegram" aria-hidden="true"></i>
         <span class="cta-copy"><span>CANAL FREE NO TELEGRAM</span><small>Toque para entrar e se satisfazer 🔥</small></span>
-        <i class="fa-solid fa-arrow-right" style="font-size:1rem;margin-left:auto" aria-hidden="true"></i>
+        <i class="fa-solid fa-arrow-right" style="font-size:.9rem;margin-left:auto" aria-hidden="true"></i>
       </a>
     </section>
 
@@ -351,13 +281,11 @@
   </main>
   
   <div class="mobile-cta">
-    <a href="https://t.me/millagabibot?start=7dac3524dffd" class="cta" target="_blank" rel="noopener noreferrer" data-track="telegram-sticky">
+    <a href="https://t.me/millagabibot?start=7dac3524dffd" class="cta" target="_blank" rel="noopener noreferrer">
       <i class="fa-brands fa-telegram" aria-hidden="true"></i>
       <span class="cta-copy"><span>ENTRAR NO CANAL GRÁTIS</span><small>Abra no Telegram ↗</small></span>
     </a>
   </div>
-  
-  <div class="toast" role="status" aria-live="polite"></div>
 
   <script>
     const revealItems = document.querySelectorAll('.reveal');
@@ -369,7 +297,7 @@
             obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.1 });
       revealItems.forEach(item => observer.observe(item));
     } else {
       revealItems.forEach(item => item.classList.add('visible'));
@@ -384,23 +312,6 @@
     };
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
-
-    const toast = document.querySelector('.toast');
-    let toastTimeout;
-    document.querySelectorAll('[data-placeholder]').forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        toast.textContent = `Adicione o link real do ${link.dataset.placeholder} no HTML.`;
-        toast.classList.add('show');
-        clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => toast.classList.remove('show'), 2600);
-      });
-    });
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelector('.ambient-video')?.pause();
-      document.querySelector('.hero-video-panel video')?.pause();
-    }
   </script>
 </body>
 </html>
