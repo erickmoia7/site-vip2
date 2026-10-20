@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milla Gabriele</title>
+    <link rel="icon" type="image/png" href="perfil2.jpeg">
+    <!-- Fonte moderna do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ícones do FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        /* CONFIGURAÇÕES DE CORES */
+        :root {
+            --text-color: #ffffff;
+            --primary-color: #ff007f;
+            --primary-glow: rgba(255, 0, 127, 0.6);
+            --btn-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #050505; /* Fundo base escuro */
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 20px 20px 20px;
+        }
+
+        /* --- VÍDEO DE FUNDO --- */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.6), rgba(10, 10, 12, 0.9));
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- PERFIL --- */
+        .profile {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            padding: 4px;
+            margin-bottom: 12px;
+            box-shadow: 0 0 25px var(--primary-glow);
+        }
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .verified-badge { width: 20px; height: 20px; object-fit: contain; }
+
+        .online-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: #d4d4d4;
+            margin-bottom: 8px;
+            background: rgba(0,0,0,0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+        }
+
+        .dot {
+            width: 8px; height: 8px;
+            background-color: #25d366;
+            border-radius: 50%;
+            animation: pulse-green 1.5s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .bio { font-size: 0.95rem; color: #e0e0e0; font-weight: 400; }
+
+        /* --- BOTÃO PRINCIPAL TELEGRAM --- */
+        .links-container { width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+        .link-btn {
+            display: flex; align-items: center; justify-content: center;
+            width: 90%; max-width: 340px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.05rem; font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .link-btn i { font-size: 1.6rem; margin-right: 12px; }
+
+        /* BOTÃO ULTRA BRILHANTE */
+        .link-btn.telegram {
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.2), rgba(0, 170, 255, 0.1));
+            border: 2px solid #00aaff;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+            animation: glow-telegram 2s infinite alternate;
+        }
+
+        .link-btn.telegram i {
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.9);
+        }
+
+        .link-btn.telegram:hover {
+            transform: scale(1.05);
+            background: rgba(0, 170, 255, 0.2);
+        }
+
+        @keyframes glow-telegram {
+            0% { box-shadow: 0 0 10px rgba(0, 170, 255, 0.3), inset 0 0 5px rgba(0, 170, 255, 0.2); }
+            100% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.8), inset 0 0 15px rgba(0, 170, 255, 0.5); border-color: #00e5ff; }
+        }
+
+        /* --- NOVIDADES / GRADE --- */
+        .news-section {
+            width: 100%; margin-top: 45px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .news-title { font-size: 1.15rem; text-align: center; font-weight: 600; width: 90%; margin-bottom: 4px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+        .news-subtitle { font-size: 0.85rem; color: #a1a1aa; text-align: center; margin-bottom: 25px; width: 90%; }
+
+        .media-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+            width: 90%; max-width: 340px; margin-bottom: 20px;
+        }
+
+        .media-item {
+            position: relative; width: 100%; aspect-ratio: 3/4;
+            border-radius: 14px; overflow: hidden;
+            background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .media-item img, .media-item video {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: blur(3px) brightness(0.7);
+            transition: transform 0.4s ease;
+        }
+        .media-item:hover img, .media-item:hover video { transform: scale(1.1); }
+
+        .media-content { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; pointer-events: none; }
+        .media-content i { font-size: 1.8rem; color: rgba(255, 255, 255, 0.95); text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
+
+        /* TAG +18 COM TOQUE VIP ROSA */
+        .badge-18 {
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            font-size: 0.75rem; font-weight: 700;
+            padding: 4px 10px; border-radius: 8px;
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-glow);
+            backdrop-filter: blur(4px);
+        }
+
+        /* --- CARD DE BENEFÍCIOS --- */
+        .benefits-card {
+            margin-top: 35px; width: 90%; max-width: 340px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(0,0,0,0.4));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 25px 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .benefits-title { font-size: 1.1rem; font-weight: 600; text-align: center; margin-bottom: 4px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .benefits-subtitle-card { font-size: 0.85rem; color: #b3b3b3; text-align: center; margin-bottom: 25px; }
+
+        .benefits-list { display: flex; flex-direction: column; gap: 20px; }
+        .benefit-item { display: flex; align-items: flex-start; gap: 12px; transition: transform 0.3s ease; }
+        .benefit-item:hover { transform: translateX(5px); }
+        .benefit-item .emoji { font-size: 1.4rem; line-height: 1.2; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+        
+        .benefit-text { display: flex; flex-direction: column; text-align: left; }
+        .benefit-text strong { font-size: 0.95rem; color: #ffffff; font-weight: 600; }
+        .benefit-text p { font-size: 0.8rem; color: #a1a1aa; margin-top: 2px; line-height: 1.4; }
+
+        /* --- SEGUNDO BOTÃO DE RECAPTURA --- */
+        .bottom-cta-container { margin-top: 40px; width: 100%; display: flex; justify-content: center; }
+
+        /* --- REDES SOCIAIS --- */
+        .socials { margin-top: 40px; margin-bottom: 15px; display: flex; gap: 25px; }
+        .social-icon { font-size: 1.8rem; text-decoration: none; opacity: 0.8; transition: all 0.3s ease; }
+        .social-icon:hover { opacity: 1; transform: scale(1.15) translateY(-3px); }
+        .social-icon.instagram i { color: #E1306C; } .social-icon.instagram:hover i { text-shadow: 0 0 15px rgba(225, 48, 108, 0.7); }
+        .social-icon.threads i { color: #ffffff; } .social-icon.threads:hover i { text-shadow: 0 0 15px rgba(255, 255, 255, 0.7); }
+        .social-icon.tiktok i { color: #ffffff; } .social-icon.tiktok:hover i { text-shadow: 2px 0px 0px #ff0050, -2px 0px 0px #00f2fe; }
+
+        /* --- AVISO RODAPÉ --- */
+        .footer-warning { font-size: 0.7rem; color: #777777; text-align: center; margin-top: 10px; padding-bottom: 20px; font-weight: 500; }
+    </style>
+</head>
+
+<body>
+
+    <div class="video-overlay"></div>
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="profile">
+            <img src="perfil2.jpeg" alt="Lara Carmen" class="avatar">
+            <h1 class="name">
+                Lara Carmen
+                <img class="verified-badge" src="verificado.png" alt="Verificado" draggable="false">
+            </h1>
+            <div class="online-status"><span class="dot"></span> Online agora</div>
+            <p class="bio">Acesse meus conteúdos exclusivos 👇</p>
+        </header>
+
+        <!-- PRIMEIRO BOTÃO -->
+        <main class="links-container">
+            <a href="https://t.me/millagabibot?start=7dac3524dffd" class="link-btn telegram" target="_blank">
+                <i class="fa-brands fa-telegram"></i>
+                <span>Canal FREE no Telegram</span>
+            </a>
+        </main>
+
+        <!-- NOVIDADES -->
+        <section class="news-section">
+            <h2 class="news-title">Vê só um pouco do que te espera… 👀</h2>
+            <p class="news-subtitle">Isto é apenas uma pequena prévia. O resto fica lá dentro.</p>
+
+            <div class="media-grid">
+                <a href="https://t.me/Lariinhaprevias" class="media-item" target="_blank">
+                    <img src="foto1.jpeg" alt="Conteúdo Exclusivo">
+                    <div class="media-content">
+                        <i class="fa-solid fa-lock"></i>
+                        <span class="badge-18">+18</span>
+                    </div>
+                </a>
+                <a href="https://t.me/Lariinhaprevias" class="media-item" target="_blank">
+                    <img src="foto2.jpeg" alt="Conteúdo Exclusivo">
+                    <div class="media-content">
+                        <i class="fa-solid fa-lock"></i>
+                        <span class="badge-18">+18</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- CAIXA DE BENEFÍCIOS -->
+            <div class="benefits-card">
+                <h3 class="benefits-title">Porque vais querer ficar por lá? 💜</h3>
+                <p class="benefits-subtitle-card">É grátis, é rápido e podes sair quando quiseres.</p>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <span class="emoji">🔥</span>
+                        <div class="benefit-text">
+                            <strong>Novidades ao longo da semana</strong>
+                            <p>Há sempre algo novo para descobrir.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="emoji">👀</span>
+                        <div class="benefit-text">
+                            <strong>Conteúdo que não vês aqui</strong>
+                            <p>Algumas coisas ficam reservadas para o grupo.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="emoji">💜</span>
+                        <div class="benefit-text">
+                            <strong>Fica por dentro</strong>
+                            <p>Acompanha as novidades diretamente no grupo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEGUNDO BOTÃO DE RECAPTURA -->
+        <div class="bottom-cta-container">
+            <a href="https://t.me/millagabibot?start=7dac3524dffd" class="link-btn telegram" target="_blank">
+                <i class="fa-brands fa-telegram"></i>
+                <span>ENTRAR AGORA GRÁTIS</span>
+            </a>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="socials">
+            <a href="https://www.instagram.com/millagabi_?obrf=Zmx1NWprMXg0NDNr" class="social-icon instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="" class="social-icon threads" target="_blank"><i class="fa-brands fa-threads"></i></a>
+            <a href="" class="social-icon tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        </footer>
+
+        <div class="footer-warning">
+            Grupo gratuito · Conteúdo +18 · Podes sair quando quiseres
+        </div>
+
+    </div>
+</body>
+</html>
