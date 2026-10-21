@@ -58,7 +58,6 @@
     
     .profile { width:100%; animation: enter .8s cubic-bezier(.2,.8,.2,1) both; }
     
-    /* Correção da Órbita e Estrelas no Celular */
     .hero-visual { position:relative; display:flex; justify-content:center; align-items:center; width:100%; height:260px; margin-bottom:12px; }
     .hero-orbit { position:absolute; width:230px; height:230px; border:1px solid #ff8cc866; border-radius:50%; animation:rotate 22s linear infinite; z-index:2; pointer-events:none; }
     .hero-orbit::before, .hero-orbit::after { content:"✦"; position:absolute; color:#ffc1e0; text-shadow:0 0 16px #ff4fa3; font-size:18px; z-index:3; }
@@ -67,15 +66,6 @@
     
     .hero-photo { position:relative; z-index:1; width:160px; height:200px; transform:rotate(2deg); border-radius:80px 80px 30px 30px; overflow:hidden; border:1px solid #ffffff55; box-shadow:0 20px 50px #0008, 0 0 45px #ff4fa322; }
     .hero-photo img { width:100%; height:100%; object-fit:cover; }
-    
-    .float-tag { position:absolute; z-index:4; padding:8px 12px; border:1px solid #ffffff2b; border-radius:12px; background:#211329ee; backdrop-filter:blur(14px); box-shadow:0 10px 25px #0006; font-size:.68rem; animation:float 4s ease-in-out infinite; white-space:nowrap; }
-    .float-tag.one { top:10px; right:10px; } 
-    .float-tag.two { bottom:10px; left:10px; animation-delay:-2s; }
-    .float-tag strong { display:block; font-size:.78rem; color:#fff; } 
-    .float-tag small { color:#d5bfd9; }
-    
-    .eyebrow { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:#f6d6e8; background:rgba(255,255,255,.045); font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px; }
-    .eyebrow .spark { color:#ffc1e0; animation: twinkle 2s ease-in-out infinite; }
     
     h1,h2,h3 { font-family:Manrope,sans-serif; }
     h1 { margin:8px 0 10px; font-size:2.4rem; line-height:1.05; letter-spacing:-.05em; }
@@ -161,8 +151,6 @@
     @keyframes enter { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
     @keyframes rotate { to { transform:rotate(360deg); } }
     @keyframes drift { to { transform:translate(30px,20px) scale(1.1); } }
-    @keyframes twinkle { 50% { transform:scale(1.15) rotate(10deg); opacity:.7; } }
-    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
     @keyframes marquee { to { transform:translateX(-50%); } }
   </style>
 </head>
@@ -187,12 +175,9 @@
       <div class="hero-visual" aria-label="Imagem de perfil">
         <div class="hero-orbit" aria-hidden="true"></div>
         <div class="hero-photo"><img src="perfil.jpeg" alt="Perfil da Milla Gabriele" loading="eager"></div>
-        <div class="float-tag one"><strong>✨ Meu dia a dia</strong><small>Fique por dentro!</small></div>
-        <div class="float-tag two"><strong>💌 Atenção especial</strong><small>Toque para entrar</small></div>
       </div>
 
       <header class="profile">
-        <span class="eyebrow"><span class="spark">✦</span> Conteúdo exclusivo te esperando 🔥🔞</span>
         <h1>Milla <span class="gradient-word">Gabriele.</span></h1>
         <p class="bio">Novidades, surpresas e tudo reunido em um só lugar. Entre no canal e fique por dentro. 💗</p>
         <div class="status"><span class="status-dot"></span> Online agora</div>
