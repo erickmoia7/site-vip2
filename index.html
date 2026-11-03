@@ -22,6 +22,8 @@
       --violet: #b56cff;
       --line: rgba(255,255,255,.12);
       --shadow: 0 24px 80px rgba(0,0,0,.38);
+      --tg-blue: #0088cc;
+      --tg-light: #24a1de;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -47,7 +49,7 @@
     .hero-video-panel video { width:100%; height:100%; object-fit:cover; filter:saturate(1.15) contrast(1.08); }
     .hero-video-panel::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(20,8,22,.9),rgba(20,8,22,.5) 58%,rgba(20,8,22,.16)); }
     
-    .page { width: min(100% - 24px, 480px); margin: 0 auto; padding: 20px 0 90px; }
+    .page { width: min(100% - 24px, 480px); margin: 0 auto; padding: 20px 0 110px; }
     
     .topbar { display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#ddcfe2; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; text-align:center; }
     .topbar-tag { border:1px solid var(--line); border-radius:999px; padding:6px 14px; background:#ffffff08; }
@@ -137,8 +139,92 @@
     .scroll-progress { position:fixed; top:0; left:0; width:100%; height:3px; z-index:10; background:#ffffff12; }
     .scroll-progress span { display:block; width:0; height:100%; background:linear-gradient(90deg,var(--pink),var(--violet)); box-shadow:0 0 12px #ff4fa3; }
     
-    .mobile-cta { position:fixed; z-index:8; left:12px; right:12px; bottom:12px; padding-bottom:env(safe-area-inset-bottom); }
-    .mobile-cta .cta { min-height:54px; border-radius:14px; box-shadow:0 8px 30px #000b, 0 0 20px #168bd055; }
+    /* BOTÃO FLUTUANTE COM BORDA LED RGB & ESTRUTURA VERTICAL */
+    .mobile-cta { 
+      position: fixed; 
+      z-index: 99; 
+      left: 14px; 
+      right: 14px; 
+      bottom: 14px; 
+      padding-bottom: env(safe-area-inset-bottom); 
+    }
+    .cta-rgb-wrapper {
+      position: relative;
+      border-radius: 22px;
+      padding: 3px;
+      background: linear-gradient(90deg, #ff007f, #00f0ff, #0088cc, #ff007f);
+      background-size: 300% 300%;
+      animation: rgb-border 4s linear infinite;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+    .cta-direct {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 18px;
+      min-height: 68px;
+      border-radius: 19px;
+      background: linear-gradient(135deg, #0b699e 0%, #1c88be 50%, #005580 100%);
+      color: #ffffff;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+    }
+    .cta-direct-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+      font-size: 1.5rem;
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+      flex-shrink: 0;
+    }
+    .cta-direct-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+      flex-grow: 1;
+    }
+    .tag-direct {
+      background: #ff4fa3;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      box-shadow: 0 0 12px #ff4fa3;
+      animation: blink 1.5s infinite ease-in-out;
+      display: inline-block;
+    }
+    .cta-direct-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .cta-direct-arrow {
+      font-size: 1.1rem;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    @keyframes rgb-border {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.96); }
+    }
     
     .socials { display:flex; justify-content:center; gap:12px; margin:28px 0 16px; }
     .social { display:grid; place-items:center; width:42px; height:42px; border:1px solid var(--line); border-radius:12px; color:white; background:rgba(255,255,255,.045); font-size:1.1rem; text-decoration:none; }
@@ -265,11 +351,20 @@
     <footer class="reveal">Canal gratuito · Conteúdo destinado a maiores de 18 anos<br>© <span id="year"></span> Milla Gabriele</footer>
   </main>
   
+  <!-- BOTÃO FLUTUANTE COM ALINHAMENTO VERTICAL (DIRECT ACIMA DE FALE DIRETO COMIGO) -->
   <div class="mobile-cta">
-    <a href="https://t.me/millapreviaspt" class="cta" target="_blank" rel="noopener noreferrer">
-      <i class="fa-brands fa-telegram" aria-hidden="true"></i>
-      <span class="cta-copy"><span>ENTRAR NO CANAL GRÁTIS</span><small>Abra no Telegram ↗</small></span>
-    </a>
+    <div class="cta-rgb-wrapper">
+      <a href="https://t.me/millagabriele" class="cta-direct" target="_blank" rel="noopener noreferrer">
+        <div class="cta-direct-icon">
+          <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+        </div>
+        <div class="cta-direct-content">
+          <span class="tag-direct">DIRECT</span>
+          <span class="cta-direct-title">FALE COMIGO</span>
+        </div>
+        <i class="fa-solid fa-chevron-right cta-direct-arrow" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 
   <script>
